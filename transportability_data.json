@@ -1,0 +1,100 @@
+{
+  "audit": {
+    "ihme_hash": "FILE_NOT_FOUND",
+    "timestamp": "2026-04-08T20:12:00.827628",
+    "algorithm": "TMLE + Super Learner Ensemble (v3.0)",
+    "estimand": "Targeted Maximum Likelihood Estimand (EIF-optimized)"
+  },
+  "map_data": [
+    {
+      "iso3": "USA",
+      "smd_avg": 0.8166666666666667,
+      "super_learner_pi": 0.2386404957908017,
+      "hr_initial": 0.7985611510791366,
+      "recalibrated_hr": 0.8683711961585711,
+      "hr_ci": [
+        0.696010769198292,
+        1.083415038515065
+      ],
+      "targeted_gain": 0.08741978618055306,
+      "influence_se": 0.11288476295375051,
+      "readiness_score": 111.5,
+      "pop_65plus_pct": 16.5,
+      "urbanization": 82,
+      "health_exp_gdp": 16.7,
+      "hospital_beds_per_1000": 2.8
+    },
+    {
+      "iso3": "IND",
+      "smd_avg": 3.16,
+      "super_learner_pi": 0.023945549502834847,
+      "hr_initial": 0.6697278343629988,
+      "recalibrated_hr": 1.5438966756264847,
+      "hr_ci": [
+        1.1710665878538682,
+        2.035423920153677
+      ],
+      "targeted_gain": 1.305259833040892,
+      "influence_se": 0.1410176440508212,
+      "readiness_score": 20.0,
+      "pop_65plus_pct": 6.8,
+      "urbanization": 35,
+      "health_exp_gdp": 3.0,
+      "hospital_beds_per_1000": 0.5
+    },
+    {
+      "iso3": "NGA",
+      "smd_avg": 2.873333333333333,
+      "super_learner_pi": 0.03011781857337996,
+      "hr_initial": 0.6705646508519879,
+      "recalibrated_hr": 1.3026511204355922,
+      "hr_ci": [
+        0.9885305984004543,
+        1.7165881807987178
+      ],
+      "targeted_gain": 0.9426182378992166,
+      "influence_se": 0.1407842825290911,
+      "readiness_score": 24.0,
+      "pop_65plus_pct": 2.7,
+      "urbanization": 52,
+      "health_exp_gdp": 3.8,
+      "hospital_beds_per_1000": 0.5
+    },
+    {
+      "iso3": "KEN",
+      "smd_avg": 3.191666666666667,
+      "super_learner_pi": 0.02334654819314262,
+      "hr_initial": 0.6366612111292962,
+      "recalibrated_hr": 1.4994575074426537,
+      "hr_ci": [
+        1.1373145948838626,
+        1.9769137112460333
+      ],
+      "targeted_gain": 1.3551890412531145,
+      "influence_se": 0.1410375081318924,
+      "readiness_score": 37.0,
+      "pop_65plus_pct": 2.5,
+      "urbanization": 28,
+      "health_exp_gdp": 4.6,
+      "hospital_beds_per_1000": 1.4
+    },
+    {
+      "iso3": "BRA",
+      "smd_avg": 1.0983333333333334,
+      "super_learner_pi": 0.16258857902213317,
+      "hr_initial": 0.7664723547076487,
+      "recalibrated_hr": 0.8667995446748908,
+      "hr_ci": [
+        0.6774231804914379,
+        1.1091168301969472
+      ],
+      "targeted_gain": 0.1308947274497713,
+      "influence_se": 0.1257712167199819,
+      "readiness_score": 68.5,
+      "pop_65plus_pct": 10.2,
+      "urbanization": 87,
+      "health_exp_gdp": 9.5,
+      "hospital_beds_per_1000": 2.1
+    }
+  ]
+}

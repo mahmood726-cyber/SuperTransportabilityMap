@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperTransportabilityMap | Evidence Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">ST</div>
+                <h2>SuperTransportabilityMap</h2>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Data Lakes Integration</h3>
+                <ul class="nav-list">
+                    <li class="active"><span class="status-dot online"></span> CT.gov Trial Baselines</li>
+                    <li class="active"><span class="status-dot online"></span> IHME GBD Demographics</li>
+                    <li class="active"><span class="status-dot online"></span> WHO Health Observatory</li>
+                    <li class="active"><span class="status-dot online"></span> World Bank WDI</li>
+                </ul>
+            </div>
+
+            <div class="nav-section control-panel">
+                <h3>Transportability Engine</h3>
+                
+                <div class="control-group">
+                    <label>Published Meta-Analysis</label>
+                    <select id="metaSelect" class="input-select">
+                        <option value="cardio">SGLT2i for Heart Failure (N=28,553)</option>
+                        <option value="neuro">Aducanumab for Alzheimer's (N=3,285)</option>
+                        <option value="id">Paxlovid for COVID-19 (N=2,246)</option>
+                        <option value="onco">Pembrolizumab for NSCLC (N=1,274)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Recalibration Algorithm</label>
+                    <select id="algoSelect" class="input-select">
+                        <option value="iptw">Inverse Probability of Participation (IPPW)</option>
+                        <option value="bart">Bayesian Additive Regression Trees (BART)</option>
+                        <option value="tmle">Targeted Maximum Likelihood (TMLE)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Target Population Year</label>
+                    <input type="range" id="yearSelect" min="2000" max="2030" value="2026" class="slider">
+                    <div class="slider-val"><span id="yearDisplay">2026</span></div>
+                </div>
+
+                <button id="btnCompute" class="primary-btn">Compute Transportability</button>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>E156 Micro-Paper Framework</p>
+                <p>TruthCert Audited</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Total CT.gov Patients</span>
+                        <span class="stat-value">4.2M</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Matched WHO/IHME Cells</span>
+                        <span class="stat-value">18.4M</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Global Applicability Score</span>
+                        <span class="stat-value" id="globalScore">42%</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Map View -->
+                <div class="card map-card">
+                    <div class="card-header">
+                        <h3>Global Transportability Index (GTI)</h3>
+                        <span class="badge">Live Projection</span>
+                    </div>
+                    <div id="map" class="map-container"></div>
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="color-box high"></span> High Transportability (>80%)</span>
+                        <span class="legend-item"><span class="color-box med"></span> Moderate (40-80%)</span>
+                        <span class="legend-item"><span class="color-box low"></span> Poor Transportability (<40%)</span>
+                    </div>
+                </div>
+
+                <!-- Analysis Charts -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3>Demographic Distance (Trial vs Target)</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card chart-card wide">
+                    <div class="card-header">
+                        <h3>Treatment Effect Recalibration</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="forestChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
