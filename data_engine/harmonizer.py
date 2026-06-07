@@ -1,5 +1,8 @@
 import sys, io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+# Guard the UTF-8 stdout shim: under pytest capture (and other harnesses)
+# sys.stdout has no .buffer, and an unconditional reassignment breaks capture.
+if hasattr(sys.stdout, "buffer") and getattr(sys.stdout, "encoding", "").lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 import pandas as pd
 import numpy as np
